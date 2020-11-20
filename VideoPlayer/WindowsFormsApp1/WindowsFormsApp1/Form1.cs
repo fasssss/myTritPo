@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.DirectX;
-using Microsoft.DirectX.AudioVideoPlayback;
 using System.IO;
 
 namespace WindowsFormsApp1
@@ -20,16 +18,53 @@ namespace WindowsFormsApp1
 		{
 			InitializeComponent();
 			controllerToPlayer = new VidePlayer(this);
+			axWindowsMediaPlayer1.BringToFront();
+			button1.BringToFront();
+			string[] fullName = Directory.GetFiles(Environment.CurrentDirectory + @"\MyVideos", "*.mp4");
+			int divorce = Directory.GetFiles(Environment.CurrentDirectory + @"\MyVideos", "*.avi").Length;
+			Array.Resize(ref fullName, divorce + fullName.Length);
+			Array.Copy(Directory.GetFiles(Environment.CurrentDirectory + @"\MyVideos", "*.avi"), 0, fullName, fullName.Length - divorce, divorce);
+			divorce = Directory.GetFiles(Environment.CurrentDirectory + @"\MyVideos", "*.mov").Length;
+			Array.Resize(ref fullName, divorce + fullName.Length);
+			Array.Copy(Directory.GetFiles(Environment.CurrentDirectory + @"\MyVideos", "*.mov"), 0, fullName, fullName.Length - divorce, divorce);
+			for (int i = 0; i < fullName.Length; i++)
+			{
+				int lastIndex = fullName[i].LastIndexOf(@"\");
+				fullName[i] = fullName[i].Substring(lastIndex + 1);
+			}
+
+			comboBox1.Items.AddRange(fullName);
+			label1.Visible = false;
+			label2.Visible = false;
+			label3.Visible = false;
+			linkLabel1.Visible = false;
 		}
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			axWindowsMediaPlayer1.URL = @"C:\Hollow Knight.avi";
+
 		}
 
 		private void res_Click(object sender, EventArgs e)
 		{
 			controllerToPlayer.ResolutionChanger();
+		}
+
+		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			string fullPath = Environment.CurrentDirectory + @"\MyVideos\" + controllerToPlayer.VideoSelector();
+			axWindowsMediaPlayer1.URL = fullPath;
+			fullPath = fullPath.Insert(fullPath.LastIndexOf(".") + 1, "txt");
+			fullPath = fullPath.Remove(fullPath.Length - 3);
+			controllerToPlayer.Description(fullPath);
+		}
+
+		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			if (controllerToPlayer.links.Contains("https"))
+			{
+				System.Diagnostics.Process.Start(controllerToPlayer.links);
+			}
 		}
 	}
 }
