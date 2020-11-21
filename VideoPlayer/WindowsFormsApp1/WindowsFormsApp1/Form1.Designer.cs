@@ -40,6 +40,9 @@ namespace WindowsFormsApp1
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.button3 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -120,11 +123,46 @@ namespace WindowsFormsApp1
 			// 
 			this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(254)))), ((int)(((byte)(230)))));
 			this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox1.Location = new System.Drawing.Point(17, 360);
+			this.textBox1.Location = new System.Drawing.Point(17, 362);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(560, 70);
+			this.textBox1.Size = new System.Drawing.Size(560, 61);
 			this.textBox1.TabIndex = 7;
+			// 
+			// textBox2
+			// 
+			this.textBox2.BackColor = System.Drawing.Color.Black;
+			this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
+			this.textBox2.ForeColor = System.Drawing.Color.White;
+			this.textBox2.Location = new System.Drawing.Point(12, 0);
+			this.textBox2.Multiline = true;
+			this.textBox2.Name = "textBox2";
+			this.textBox2.Size = new System.Drawing.Size(565, 25);
+			this.textBox2.TabIndex = 8;
+			this.textBox2.Text = "Subs";
+			this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.textBox2.Visible = false;
+			// 
+			// button3
+			// 
+			this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+			this.button3.Location = new System.Drawing.Point(487, 300);
+			this.button3.Name = "button3";
+			this.button3.Size = new System.Drawing.Size(28, 25);
+			this.button3.TabIndex = 10;
+			this.button3.UseVisualStyleBackColor = true;
+			this.button3.Click += new System.EventHandler(this.SubMode_Click);
+			// 
+			// button2
+			// 
+			this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+			this.button2.Location = new System.Drawing.Point(521, 300);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(25, 25);
+			this.button2.TabIndex = 11;
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.loop_Click);
 			// 
 			// Form1
 			// 
@@ -132,12 +170,15 @@ namespace WindowsFormsApp1
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(254)))), ((int)(((byte)(230)))));
 			this.ClientSize = new System.Drawing.Size(910, 517);
+			this.Controls.Add(this.button2);
+			this.Controls.Add(this.button3);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.linkLabel1);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.comboBox1);
+			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.axWindowsMediaPlayer1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -159,6 +200,9 @@ namespace WindowsFormsApp1
 		public System.Windows.Forms.Label label2;
 		public System.Windows.Forms.Label label3;
 		public System.Windows.Forms.TextBox textBox1;
+		public System.Windows.Forms.TextBox textBox2;
+		public System.Windows.Forms.Button button3;
+		public System.Windows.Forms.Button button2;
 	}
 }
 
