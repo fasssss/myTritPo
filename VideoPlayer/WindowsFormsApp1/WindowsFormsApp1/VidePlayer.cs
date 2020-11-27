@@ -30,7 +30,6 @@ namespace WindowsFormsApp1
 		private Size subSize;
 		private Size subPosition;
 		public string links;
-		private System.Windows.Forms.TextBox textBox2;
 		public VidePlayer(Form1 form)
 		{
 			player = form;
